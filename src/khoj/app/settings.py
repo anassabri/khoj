@@ -151,7 +151,7 @@ DATABASES = {
         #"CONN_MAX_AGE": 0,
         #"CONN_HEALTH_CHECKS": True,
     #}
-}
+#}
 
 # User Settings
 AUTH_USER_MODEL = "database.KhojUser"
