@@ -21,6 +21,8 @@ from django.templatetags.static import static
 
 from khoj.utils.helpers import in_debug_mode, is_env_var_true
 
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
