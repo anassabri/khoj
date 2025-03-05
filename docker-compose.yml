@@ -44,11 +44,16 @@ services:
       - khoj_models:/root/.cache/huggingface
     # Use 0.0.0.0 to explicitly set the host ip for the service on the container. https://pythonspeed.com/articles/docker-connection-refused/
     environment:
-      - POSTGRES_DB=khoj
-      - POSTGRES_USER=khoj
-      - POSTGRES_PASSWORD=khoj
-      - POSTGRES_HOST=database
-      - POSTGRES_PORT=5432
+# Comment out or remove the existing PostgreSQL configuration
+      # - POSTGRES_DB=postgres
+      # - POSTGRES_USER=postgres
+      # - POSTGRES_PASSWORD=postgres
+      # - POSTGRES_HOST=database
+      # - POSTGRES_PORT=5432
+      
+      # Add the DATABASE_URL environment variable for the Render PostgreSQL database
+      - DATABASE_URL=postgresql://khoj:plByRVSUINw3HHyOI4EMjgU6LAIpxZOi@dpg-cv3er8t6l47c73fd1n5g-a/khoj_ng0l
+      
       - KHOJ_DJANGO_SECRET_KEY=secret
       - KHOJ_DEBUG=False
       - KHOJ_ADMIN_EMAIL=username@example.com
