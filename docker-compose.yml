@@ -45,11 +45,13 @@ services:
     # Use 0.0.0.0 to explicitly set the host ip for the service on the container. https://pythonspeed.com/articles/docker-connection-refused/
     environment:
 # Comment out or remove the existing PostgreSQL configuration
-      - POSTGRES_DB=khoj_ng0l
-      - POSTGRES_USER=khoj
-      - POSTGRES_PASSWORD=plByRVSUINw3HHyOI4EMjgU6LAIpxZOi
-      - POSTGRES_HOST=dpg-cv3er8t6l47c73fd1n5g-a
-      - POSTGRES_PORT=5432
+      #- POSTGRES_DB=khoj_ng0l
+      #- POSTGRES_USER=khoj
+      #- POSTGRES_PASSWORD=plByRVSUINw3HHyOI4EMjgU6LAIpxZOi
+      #- POSTGRES_HOST=dpg-cv3er8t6l47c73fd1n5g-a
+      #- POSTGRES_PORT=5432
+
+      - DATABASE_URL=postgresql://khoj:plByRVSUINw3HHyOI4EMjgU6LAIpxZOi@dpg-cv3er8t6l47c73fd1n5g-a/khoj_ng0l
 
       - KHOJ_DJANGO_SECRET_KEY=secret
       - KHOJ_DEBUG=False
@@ -98,7 +100,7 @@ services:
       # Uncomment the line below to disable telemetry.
       # Telemetry helps us prioritize fea# ture development and understand how people are using Khoj
       # Read more at https://docs.khoj.dev/miscellaneous/telemetry
-      # - KHOJ_TELEMETRY_DISABLE=True
+       - KHOJ_TELEMETRY_DISABLE=True
     # Comment out this line when you're using the official ghcr.io/khoj-ai/khoj-cloud:latest prod image.
     # command: --host="0.0.0.0" --port=42110 -vv --anonymous-mode --non-interactive
 
