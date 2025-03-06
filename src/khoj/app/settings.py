@@ -126,8 +126,10 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 20000
 
 # Replace the DATABASES section of your settings.py with this
 
-DATABASES = {'default': dj_database_url.config(default=DATABASE_URL='postgresql://khoj:plByRVSUINw3HHyOI4EMjgU6LAIpxZOi@dpg-cv3er8t6l47c73fd1n5g-a/khoj_ng0l',conn_max_age=600)}
-
+#DATABASES = {'default': dj_database_url.config(default=DATABASE_URL='postgresql://khoj:plByRVSUINw3HHyOI4EMjgU6LAIpxZOi@dpg-cv3er8t6l47c73fd1n5g-a/khoj_ng0l',conn_max_age=600)}
+DATABASES = {
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+}
 #DATABASES = {
  #   "default": {
   #      "ENGINE": "django.db.backends.postgresql",
