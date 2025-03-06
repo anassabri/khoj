@@ -12,16 +12,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 
-from dotenv import load_dotenv
-from urllib.parse import urlparse
-
 from pathlib import Path
 
 from django.templatetags.static import static
 
 from khoj.utils.helpers import in_debug_mode, is_env_var_true
-
-load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -127,31 +122,19 @@ CLOSE_CONNECTIONS_AFTER_REQUEST = True
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 20000
 
 # Replace the DATABASES section of your settings.py with this
-tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': tmpPostgres.path.replace('/', ''),
-        'USER': tmpPostgres.username,
-        'PASSWORD': tmpPostgres.password,
-        'HOST': tmpPostgres.hostname,
-        'PORT': 5432,
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "HOST": os.getenv("POSTGRES_HOST", "localhost"),
+        "PORT": os.getenv("POSTGRES_PORT", "5432"),
+        "USER": os.getenv("POSTGRES_USER", "khoj"),
+        "NAME": os.getenv("POSTGRES_DB", "khoj_ng0l"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD", "plByRVSUINw3HHyOI4EMjgU6LAIpxZOi"),
+        "CONN_MAX_AGE": 0,
+        "CONN_HEALTH_CHECKS": True,
     }
 }
-
-#DATABASES = {
- #   "default": {
-  #      "ENGINE": "django.db.backends.postgresql",
-   #     "HOST": os.getenv("POSTGRES_HOST", "localhost"),
-    #    "PORT": os.getenv("POSTGRES_PORT", "5432"),
-     #   "USER": os.getenv("POSTGRES_USER", "postgres"),
-      #  "NAME": os.getenv("POSTGRES_DB", "khoj"),
-       # "PASSWORD": os.getenv("POSTGRES_PASSWORD", "postgres"),
-        #"CONN_MAX_AGE": 0,
-        #"CONN_HEALTH_CHECKS": True,
-    #}
-#}
 
 # User Settings
 AUTH_USER_MODEL = "database.KhojUser"
