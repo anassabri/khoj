@@ -3,3 +3,4 @@ fastapi
 posthog
 python-dotenv
 dj-database-url
+whitenoise[brotli]
