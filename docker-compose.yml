@@ -53,8 +53,8 @@ services:
 
       # DATABASE_URL=postgresql://khoj:plByRVSUINw3HHyOI4EMjgU6LAIpxZOi@dpg-cv3er8t6l47c73fd1n5g-a/khoj_ng0l
 
-      - KHOJ_DJANGO_SECRET_KEY=secret
-      - KHOJ_DEBUG=False
+      - KHOJ_DJANGO_SECRET_KEY=878c154fddc11dc6441f52c708ec162e
+      - KHOJ_DEBUG=TRUE
       - KHOJ_ADMIN_EMAIL=anassabri@gmail.com
       - KHOJ_ADMIN_PASSWORD=anassabri@gmail.com
       # Default URL of Terrarium, the Python sandbox used by Khoj to run code. Its container is specified above
