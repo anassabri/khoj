@@ -45,19 +45,16 @@ services:
     # Use 0.0.0.0 to explicitly set the host ip for the service on the container. https://pythonspeed.com/articles/docker-connection-refused/
     environment:
 # Comment out or remove the existing PostgreSQL configuration
-      # - POSTGRES_DB=postgres
-      # - POSTGRES_USER=postgres
-      # - POSTGRES_PASSWORD=postgres
-      # - POSTGRES_HOST=database
-      # - POSTGRES_PORT=5432
-      
-      # Add the DATABASE_URL environment variable for the PostgreSQL database
-        DATABASE_URL='postgresql://neondb_owner:npg_mCSnG9VFh7TW@ep-nameless-moon-a8a568e1-pooler.eastus2.azure.neon.tech/neondb?sslmode=require'
+      - POSTGRES_DB=khoj_ng0l
+      - POSTGRES_USER=khoj
+      - POSTGRES_PASSWORD=plByRVSUINw3HHyOI4EMjgU6LAIpxZOi
+      - POSTGRES_HOST=database
+      - POSTGRES_PORT=5432
 
       - KHOJ_DJANGO_SECRET_KEY=secret
       - KHOJ_DEBUG=False
-      - KHOJ_ADMIN_EMAIL=username@example.com
-      - KHOJ_ADMIN_PASSWORD=password
+      - KHOJ_ADMIN_EMAIL=anassabri@gmail.com
+      - KHOJ_ADMIN_PASSWORD=anassabri@gmail.com
       # Default URL of Terrarium, the Python sandbox used by Khoj to run code. Its container is specified above
       - KHOJ_TERRARIUM_URL=http://sandbox:8080
       # Default URL of SearxNG, the default web search engine used by Khoj. Its container is specified above
