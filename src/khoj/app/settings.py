@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+import dj_database_url
 
 import os
 
@@ -124,17 +125,21 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 20000
 # Replace the DATABASES section of your settings.py with this
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "HOST": os.getenv("POSTGRES_HOST", "localhost"),
-        "PORT": os.getenv("POSTGRES_PORT", "5432"),
-        "USER": os.getenv("POSTGRES_USER", "khoj"),
-        "NAME": os.getenv("POSTGRES_DB", "khoj_ng0l"),
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD", "plByRVSUINw3HHyOI4EMjgU6LAIpxZOi"),
-        "CONN_MAX_AGE": 0,
-        "CONN_HEALTH_CHECKS": True,
-    }
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
+
+#DATABASES = {
+ #   "default": {
+  #      "ENGINE": "django.db.backends.postgresql",
+   #     "HOST": os.getenv("POSTGRES_HOST", "localhost"),
+    #    "PORT": os.getenv("POSTGRES_PORT", "5432"),
+     #   "USER": os.getenv("POSTGRES_USER", "khoj"),
+      #  "NAME": os.getenv("POSTGRES_DB", "khoj_ng0l"),
+       # "PASSWORD": os.getenv("POSTGRES_PASSWORD", "plByRVSUINw3HHyOI4EMjgU6LAIpxZOi"),
+        #"CONN_MAX_AGE": 0,
+        #"CONN_HEALTH_CHECKS": True,
+    #}
+#}
 
 # User Settings
 AUTH_USER_MODEL = "database.KhojUser"
