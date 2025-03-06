@@ -2,3 +2,4 @@ uvicorn
 fastapi
 posthog
 python-dotenv
+dj-database-url
