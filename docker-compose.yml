@@ -51,7 +51,7 @@ services:
       #- POSTGRES_HOST=dpg-cv3er8t6l47c73fd1n5g-a
       #- POSTGRES_PORT=5432
 
-      - DATABASE_URL=postgresql://khoj:plByRVSUINw3HHyOI4EMjgU6LAIpxZOi@dpg-cv3er8t6l47c73fd1n5g-a/khoj_ng0l
+      # DATABASE_URL=postgresql://khoj:plByRVSUINw3HHyOI4EMjgU6LAIpxZOi@dpg-cv3er8t6l47c73fd1n5g-a/khoj_ng0l
 
       - KHOJ_DJANGO_SECRET_KEY=secret
       - KHOJ_DEBUG=False
