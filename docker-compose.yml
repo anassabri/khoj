@@ -2,9 +2,9 @@ services:
   database:
     image: ankane/pgvector
     environment:
-      POSTGRES_USER: khoj
-      POSTGRES_PASSWORD: plByRVSUINw3HHyOI4EMjgU6LAIpxZOi
-      POSTGRES_DB: khoj_ng0l
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
     volumes:
       - khoj_db:/var/lib/postgresql/data/
     healthcheck:
