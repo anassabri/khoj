@@ -215,7 +215,29 @@ def set_state(args):
     state.khoj_version = version("khoj")
     state.chat_on_gpu = args.chat_on_gpu
 
+def start_server(app, host=None, port=None, socket=None):
+    logger.info("🌖 Khoj is ready to use")
+    server_host = host or "0.0.0.0" # Default host to 0.0.0.0 if not provided
+    server_port = port or int(os.environ.get("PORT", 42110)) # Get port from environment, default to 42110
 
+    logger.info(f"Starting uvicorn on host: {server_host}, port: {server_port}") # Added log
+
+    if socket:
+        uvicorn.run(app, proxy_headers=True, uds=socket, log_level="debug", use_colors=True, log_config=None)
+    else:
+        uvicorn.run(
+            app,
+            host=server_host, # Use server_host here
+            port=server_port, # Use server_port here
+            log_level="debug" if state.verbose > 1 else "info",
+            use_colors=True,
+            log_config=None,
+            timeout_keep_alive=60,
+            **state.ssl_config if state.ssl_config else {},
+        )
+    logger.info("🌒 Stopping Khoj")
+   
+"""
 def start_server(app, host=None, port=None, socket=None):
     logger.info("🌖 Khoj is ready to use")
     if socket:
@@ -233,6 +255,7 @@ def start_server(app, host=None, port=None, socket=None):
         )
     logger.info("🌒 Stopping Khoj")
 
+"""
 
 def poll_task_scheduler():
     timer_thread = threading.Timer(60.0, poll_task_scheduler)
