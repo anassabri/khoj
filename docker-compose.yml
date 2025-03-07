@@ -34,7 +34,8 @@ services:
       # If changing the remote port (right hand side),
       #   change the port in the args in the build section,
       #   as well as the port in the command section to match
-      - "42110:42110"
+      - "10000:10000"
+      #- "42110:42110"
     extra_hosts:
       - "host.docker.internal:host-gateway"
     working_dir: /app
