@@ -35,7 +35,7 @@ DEBUG = in_debug_mode()
 # All Subdomains of KHOJ_DOMAIN are trusted
 KHOJ_DOMAIN = os.getenv("KHOJ_DOMAIN", "khoj.dev")
 KHOJ_ALLOWED_DOMAIN = os.getenv("KHOJ_ALLOWED_DOMAIN", KHOJ_DOMAIN)
-ALLOWED_HOSTS = [f".{KHOJ_ALLOWED_DOMAIN}", "localhost", "127.0.0.1", "[::1]", f"{KHOJ_ALLOWED_DOMAIN}"]
+ALLOWED_HOSTS = [f".{KHOJ_ALLOWED_DOMAIN}", "localhost", "127.0.0.1","0.0.0.0", "[::1]", f"{KHOJ_ALLOWED_DOMAIN}"]
 
 CSRF_TRUSTED_ORIGINS = [
     f"https://*.{KHOJ_DOMAIN}",
