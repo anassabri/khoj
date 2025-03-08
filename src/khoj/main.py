@@ -218,7 +218,7 @@ def set_state(args):
 def start_server(app, host=None, port=None, socket=None):
     logger.info("🌖 Khoj is ready to use")
     server_host = "0.0.0.0" #host or "0.0.0.0" # Default host to 0.0.0.0 if not provided
-    server_port = 10000# port or int(os.environ.get("PORT", 10000)) # Get port from environment, default to 42110
+    server_port = port or int(os.environ.get("PORT", 42110)) # Get port from environment, default to 42110
 
     logger.info(f"Starting uvicorn on host: {server_host}, port: {server_port}") # Added log
 
